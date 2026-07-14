@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piano Akar Berduri — Afd Hotel GSDI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="enter-overlay" id="enterOverlay">
+  <div class="enter-box">
+    <p class="eyebrow">— sebelum masuk —</p>
+    <h1 class="enter-title">Selamat Datang di Afd Hotel GSDI</h1>
+    <p class="enter-text">Di balik akar-akar ini, angin membawa nada piano yang samar. Sentuh untuk membangunkan suasananya &mdash; peramban perlu satu sentuhan sebelum suara boleh menyala.</p>
+
+    <div class="welcome-gallery">
+      <figure>
+        <img src="assets/images/photo1.jpg" alt="Tim Afd Hotel GSDI">
+        <figcaption>Tim Afd Hotel GSDI</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/images/photo2.jpg" alt="Pemeriksaan kesehatan kerja di kebun">
+        <figcaption>Pemeriksaan Kesehatan Kerja</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/images/photo3.jpg" alt="Pagi hari di kebun sawit">
+        <figcaption>Pagi di Kebun Sawit</figcaption>
+      </figure>
+    </div>
+
+    <button type="button" id="enterBtn" class="enter-btn">🌲 Masuk</button>
+  </div>
+</div>
+
+<!-- Elemen audio tersembunyi untuk musik latar mp3 opsional (lihat ambience.js) -->
+<audio id="ambientTrack" preload="none" style="display:none"></audio>
+
+<div class="scene">
+
+  <img class="spike spike-left" alt="" aria-hidden="true">
+  <img class="spike spike-right" alt="" aria-hidden="true">
+  <img class="spike spike-top-left" alt="" aria-hidden="true">
+  <img class="spike spike-top-center" alt="" aria-hidden="true">
+  <img class="spike spike-top-right" alt="" aria-hidden="true">
+
+  <section class="team-wrap" id="teamWrap">
+    <p class="eyebrow">— wajah-wajah penjaga kebun —</p>
+    <h2>Tim Afdeling</h2>
+    <p class="subtitle">Kata mereka tentang tugasnya masing-masing di kebun.</p>
+
+    <div class="testimonial">
+      <div class="testi-media" id="testiMedia"></div>
+      <div class="testi-content">
+        <p class="testi-role" id="testiRole"></p>
+        <h3 class="testi-name" id="testiName"></h3>
+        <p class="testi-quote" id="testiQuote"></p>
+        <div class="testi-nav">
+          <button type="button" class="testi-btn" id="testiPrev" aria-label="Profil sebelumnya">‹</button>
+          <button type="button" class="testi-btn" id="testiNext" aria-label="Profil berikutnya">›</button>
+        </div>
+        <div class="testi-dots" id="testiDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <header>
+    <p class="eyebrow">— tumbuh dari akar yang gelap —</p>
+    <h1>Piano Akar Berduri</h1>
+    <p class="subtitle">
+      Klik atau sentuh tuts untuk memainkannya. Bisa juga pakai papan ketik:
+      <span>A S D F G H J K L ; '</span> untuk tuts putih,
+      <span>W E T Y U O P</span> untuk tuts hitam.
+    </p>
+  </header>
+
+  <section class="instrument-wrap" id="instrumentWrap">
+    <p class="eyebrow">— piringan yang berputar di akar —</p>
+    <h2>Pilih Instrumen</h2>
+    <div class="turntable">
+      <button type="button" class="turn-arrow" id="prevInst" aria-label="Instrumen sebelumnya">‹</button>
+      <div class="vinyl" id="vinylDisc" role="button" tabindex="0" aria-label="Ganti instrumen">
+        <div class="vinyl-grooves"></div>
+        <div class="vinyl-label" id="vinylLabel">Piano Akar</div>
+        <div class="tonearm"></div>
+      </div>
+      <button type="button" class="turn-arrow" id="nextInst" aria-label="Instrumen berikutnya">›</button>
+    </div>
+    <p class="instrument-hint">Putar piringan untuk mengganti warna suara piano &amp; permainan chord.</p>
+    <button type="button" id="ambienceToggle" class="restart-btn ambience-toggle">🌙 Suara Hutan: Mati</button>
+  </section>
+
+  <div class="piano-wrap">
+    <div class="thorn-row" id="thornRow" aria-hidden="true"></div>
+    <div class="piano">
+      <div class="keys-area">
+        <div class="white-keys" id="whiteKeys"></div>
+        <div class="black-keys" id="blackKeys"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="game-wrap" id="gameWrap">
+    <p class="eyebrow">— akar yang mengingat lagu —</p>
+    <h2>Permainan Ikuti Chord</h2>
+    <p class="subtitle">Pilih lagu, lalu tekan bantalan chord tepat saat kuncup akar tiba di garis cahaya. Bisa juga pakai tombol angka <span>1 2 3 4 5</span> di papan ketik.</p>
+
+    <div class="song-picker" id="songPicker">
+      <button type="button" class="song-btn" data-song="faded">Faded <small>Alan Walker</small></button>
+      <button type="button" class="song-btn" data-song="canon">Canon Rock <small>Jerry C / Pachelbel</small></button>
+      <button type="button" class="song-btn" data-song="gundul">Gundul-Gundul Pacul <small>Lagu Tradisional</small></button>
+    </div>
+
+    <div class="hud" id="hud">
+      <span>Skor <strong id="hudScore">0</strong></span>
+      <span>Kombo <strong id="hudCombo">0</strong></span>
+      <span>Akurasi <strong id="hudAcc">100%</strong></span>
+      <button type="button" id="restartBtn" class="restart-btn" hidden>Ulangi</button>
+    </div>
+
+    <div class="game-stage" id="gameStage">
+      <p class="game-placeholder" id="gamePlaceholder">Pilih salah satu lagu di atas untuk mulai bermain.</p>
+    </div>
+
+    <p class="game-result" id="gameResult" aria-live="polite"></p>
+  </section>
+
+  <footer>Sentuh dawai yang tumbuh dari akar &mdash; <em>mainkan pelan-pelan</em>.</footer>
+</div>
+
+<div class="grass-strip" aria-hidden="true">
+  <img class="grass-img" src="assets/images/grass.png" alt="">
+</div>
+
+<script src="js/audio-engine.js"></script>
+<script src="js/piano.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ambience.js"></script>
+<script src="js/vinyl.js"></script>
+<script src="js/team.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
